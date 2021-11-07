@@ -1,4 +1,4 @@
-import { Alert, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
@@ -71,9 +71,9 @@ const Register = () => {
                             type='password'
                             variant="standard"
                         />
-                        <button sx={{ width: '75%', m: 3 }} type='submit' variant='contained'>Register</button><br />
+                        <Button sx={{ width: '75%', m: 3 }} type='submit' variant='contained'>Register</Button><br />
                         <p>alrady an account?<NavLink to='/login'>
-                            <button variant='text'>Login</button>
+                            <Button variant='text'>Login</Button>
                         </NavLink></p>
                     </form>
                     }

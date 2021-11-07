@@ -1,4 +1,4 @@
-import { Alert, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
@@ -53,9 +53,9 @@ const Login = () => {
                                 type='password'
                                 variant="standard"
                             />
-                            <button type='submit' sx={{ width: '75%', m: 3 }} variant='contained'>Login</button><br />
+                            <Button type='submit' sx={{ width: '75%', m: 3 }} variant='contained'>Login</Button><br />
                             <NavLink to='/register'>
-                                <button variant='text'>Register</button>
+                                <Button variant='text'>Register</Button>
                             </NavLink>
                             {
                                 isLoading && <CircularProgress color="success" />
@@ -69,7 +69,7 @@ const Login = () => {
                         </form>
                     }
                     <p>_________OR__________</p>
-                    <button variant='contained' onClick={handleGoogleSign} sx={{ backgroundColor: 'success.main' }}>continue with google</button>
+                    <Button variant='contained' onClick={handleGoogleSign} sx={{ backgroundColor: 'success.main' }}>continue with google</Button>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '90%' }} src={login} alt="" />

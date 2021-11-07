@@ -1,4 +1,4 @@
-import { Fade } from '@mui/material';
+import { Button, Fade } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -110,7 +110,7 @@ const BookingModal = ({ openModal, handleClose, booking, date, setBookingSuccess
                             defaultValue={date.toDateString()}
                             size="small"
                         />
-                        <button type='submit' variant='contained' sx={{ backgroundColor: '#2CC6CA', m: 1 }}>CONFIRM BOOKED</button>
+                        <Button type='submit' variant='contained' sx={{ backgroundColor: '#2CC6CA', m: 1 }}>CONFIRM BOOKED</Button>
                     </form>
                 </Box>
             </Fade>

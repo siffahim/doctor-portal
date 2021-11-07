@@ -1,4 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu';
+import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -30,11 +31,11 @@ const Navigation = () => {
                     {
                         user?.email ? <Box>
                             <Link to='/dashboard'>
-                                <button sx={{ color: 'white', textDecoration: 'none' }} color="inherit">Dashboard</button>
+                                <Button sx={{ color: 'white', textDecoration: 'none' }} color="inherit">Dashboard</Button>
                             </Link>
-                            <button variant='contained' onClick={logOut}>Logout</button>
+                            <Button variant='contained' onClick={logOut}>Logout</Button>
                         </Box> : <Link to='/login'>
-                            <button color="white">Login</button>
+                            <Button variant='contained' onClick={logOut}>Login</Button>
                         </Link>
                     }
                 </Toolbar>

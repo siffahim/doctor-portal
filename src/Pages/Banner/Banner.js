@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React from 'react';
@@ -27,7 +27,7 @@ const Banner = () => {
                         <Typography variant='h6' sx={{ fontSize: 14, my: 3, fontWeight: 300, color: 'gray' }}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, nisi recusandae. Ullam facilis consequatur labore, quis maxime cumque minus blanditiis.
                         </Typography>
-                        <button variant='contained' sx={{ backgroundColor: '#2CC6CA' }}>Learn More</button>
+                        <Button variant='contained' sx={{ backgroundColor: '#2CC6CA' }}>Learn More</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={7} style={varticalCenter}>

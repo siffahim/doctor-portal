@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import bg from '../../images/appointment-bg.png';
@@ -33,7 +33,7 @@ const AppointmentBanner = () => {
                     <Typography variant='h6' sx={{ my: 4, fontSize: '14px', fontWeight: 300, color: 'white' }}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis pariatur accusantium, eius deserunt repellendus delectus at provident saepe ea impedit.
                     </Typography>
-                    <button variant='contained' sx={{ backgroundColor: '#2CC6CA' }}>Learn More</button>
+                    <Button variant='contained' sx={{ backgroundColor: '#2CC6CA' }}>Learn More</Button>
                 </Box>
             </Grid>
         </Grid>

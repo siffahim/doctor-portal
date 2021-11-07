@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography } from '@mui/material';
+import { Button, Grid, Paper, Typography } from '@mui/material';
 import React from 'react';
 import BookingModal from '../BookingModal/BookingModal';
 
@@ -21,7 +21,7 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
                     <Typography variant='caption' display='block' gutterBottom sx={{ my: 1 }}>
                         {space}SPACES AVAILEAVLE
                     </Typography>
-                    <button onClick={handleOpen} variant='contained' sx={{ backgroundColor: '#2CC6CA', }}>BOOK APPOINMENT</button>
+                    <Button onClick={handleOpen} variant='contained' sx={{ backgroundColor: '#2CC6CA', }}>BOOK APPOINMENT</Button>
                 </Paper>
             </Grid>
             <BookingModal
