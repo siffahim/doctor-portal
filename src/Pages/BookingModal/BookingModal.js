@@ -52,7 +52,7 @@ const BookingModal = ({ openModal, handleClose, booking, date, setBookingSuccess
             .then(data => {
                 if (data.insertedId) {
                     setBookingSuccess(true)
-                    handleClose();
+                    handleClose()
                 }
             })
 

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import authenticationFirebase from "../Pages/Login/Firebase/firebase.init";
 
@@ -8,6 +8,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
     const auth = getAuth();
 
 
@@ -25,7 +27,7 @@ const useFirebase = () => {
                         setError('')
                     })
                     .catch(err => setError(err.message))
-
+                saveToDb(email, name, 'POST')
                 setError('');
                 history.replace('/')
             })
@@ -57,7 +59,9 @@ const useFirebase = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                setUser(result.user);
+                const user = result.user;
+                saveToDb(user.email, user.displayName, 'PUT')
+                setUser(user);
                 const uri = location?.state?.from || '/';
                 history.push(uri)
                 setError('');
@@ -73,12 +77,25 @@ const useFirebase = () => {
         onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user)
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken)
+                    })
             } else {
                 setUser({})
             }
             setIsLoading(false)
         })
     }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setAdmin(data.admin)
+            })
+    }, [user.email])
+
 
     //singOut
     const logOut = () => {
@@ -90,10 +107,25 @@ const useFirebase = () => {
                 setIsLoading(false)
             })
     }
+    //save on mongodb 
+    const saveToDb = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        }).then(() => {
+
+        })
+    }
 
     return {
         user,
         error,
+        admin,
+        token,
         register,
         loginUser,
         googleSignIn,
