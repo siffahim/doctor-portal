@@ -41,7 +41,7 @@ const BookingModal = ({ openModal, handleClose, booking, date, setBookingSuccess
         }
         console.log(appoinment)
         //send to server with database
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://serene-citadel-12756.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
