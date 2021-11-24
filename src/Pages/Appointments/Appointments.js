@@ -6,15 +6,19 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Appointments = ({ date }) => {
-    console.log(date.toLocaleDateString())
     const [appointments, setAppointments] = useState([]);
-    const { user } = useAuth();
+    const { user, token } = useAuth();
     useEffect(() => {
         const url = `https://serene-citadel-12756.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString()}`
-        fetch(url)
+        fetch(url, {
+            headers: {
+                'authorization': `Bearer ${token}`,
+            }
+        })
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [date])
@@ -42,7 +46,9 @@ const Appointments = ({ date }) => {
                                 </TableCell>
                                 <TableCell align="right">{row.time}</TableCell>
                                 <TableCell align="right">{row.serviceName}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
+                                <TableCell align="right">{row.payment ? 'Paid' :
+                                    <Link to={`dashboard/payment/${row._id}`}><button>Pay</button></Link>
+                                }</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
