@@ -11,7 +11,7 @@ const Payment = () => {
     const [appointment, setAppointment] = useState({})
     useEffect(() => {
         const pay = async () => {
-            const res = await fetch(`http://localhost:5000/appointments/${appoinmentId}`)
+            const res = await fetch(`https://serene-citadel-12756.herokuapp.com/appointments/${appoinmentId}`)
             const data = await res.json()
             setAppointment(data)
         }

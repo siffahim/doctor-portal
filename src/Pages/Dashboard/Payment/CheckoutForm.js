@@ -15,7 +15,7 @@ const CheckoutForm = ({ appointment }) => {
     const elements = useElements();
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://serene-citadel-12756.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -87,7 +87,7 @@ const CheckoutForm = ({ appointment }) => {
                 created: paymentIntent.created,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-            const url = `http://localhost:5000/appointments/${_id}`
+            const url = `https://serene-citadel-12756.herokuapp.com/appointments/${_id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {
