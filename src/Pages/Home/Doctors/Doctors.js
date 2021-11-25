@@ -13,14 +13,17 @@ const Doctors = () => {
         dataConnet()
     }, [])
     return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-            {
-                doctors.map(doctor => <Doctor
-                    key={doctor.name}
-                    doctor={doctor}
-                />)
-            }
-        </Grid>
+        <>
+            <h2>Doctors: {doctors.length}</h2>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                {
+                    doctors.map(doctor => <Doctor
+                        key={doctor.name}
+                        doctor={doctor}
+                    />)
+                }
+            </Grid>
+        </>
     );
 };
 

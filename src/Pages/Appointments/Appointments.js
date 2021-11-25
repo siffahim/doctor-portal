@@ -47,7 +47,7 @@ const Appointments = ({ date }) => {
                                 <TableCell align="right">{row.time}</TableCell>
                                 <TableCell align="right">{row.serviceName}</TableCell>
                                 <TableCell align="right">{row.payment ? 'Paid' :
-                                    <Link to={`dashboard/payment/${row._id}`}><button>Pay</button></Link>
+                                    <Link to={`/dashboard/payment/${row._id}`}><button>Pay</button></Link>
                                 }</TableCell>
                             </TableRow>
                         ))}

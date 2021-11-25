@@ -1,13 +1,13 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import login from '../../../images/login.png';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
     const { register, isLoading, user, error } = useAuth();
-    const history = useHistory()
+    const history = useNavigate()
 
     //onchange both 
     const handleFormInput = e => {
